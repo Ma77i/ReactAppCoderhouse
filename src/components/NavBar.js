@@ -2,6 +2,7 @@ import CartWidget from "./CartWidget"
 
 
 
+
 const NavBar = () =>
     <nav>
         <h1>Tienda Oficial</h1>
