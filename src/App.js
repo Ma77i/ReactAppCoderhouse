@@ -10,12 +10,9 @@ const App = () => {
 
     return (
         <>
-            <NavBar>
-            </NavBar>
+            <NavBar />
 
-            <ItemListContainer>
-
-            </ItemListContainer>
+            <ItemListContainer greeting="Bienvenidos a la Tienda" />
         </>
     )
 
