@@ -16,7 +16,7 @@ const App = () => {
 
             <ItemListContainer greeting="Bienvenidos a la Tienda Pokemon"/>
 
-            
+            <ItemDetailContainer />
         </>
     )
 }

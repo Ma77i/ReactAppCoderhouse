@@ -14,8 +14,10 @@ const ItemListContainer = ({greeting}) => {
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 console.log("Llegue al setTimeOut?");
-                resolve(POKES)
+                resolve(POKES);
+                reject("Ocurrió un error al traer los productos")
             }, 2000)
+            
         })
 
         promise.then(() => {

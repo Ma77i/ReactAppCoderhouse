@@ -2,7 +2,7 @@ import Item from "./Item"
 import { Container, Row } from 'react-bootstrap'
 
 const ItemList = ({ items }) => {
-    console.log(items)
+    //console.log(items)
     return (
         <Container>
             <Row>
