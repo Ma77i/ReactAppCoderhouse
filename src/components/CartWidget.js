@@ -1,6 +1,6 @@
 const CartWidget = () => 
 
-    <a href="carrito.html" className="material-icons">shopping_cart</a>
+    <a href="#home" className="material-icons carro">shopping_cart</a>
 
 
 export default CartWidget

@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ListContainer/ItemListContainer"
 import "./style.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer";
 
 const App = () => {
 
@@ -13,7 +14,9 @@ const App = () => {
         <>
             <NavBar />
 
-            <ItemListContainer welcome="Bienvenidos a la Tienda Pokemon"/>
+            <ItemListContainer greeting="Bienvenidos a la Tienda Pokemon"/>
+
+            
         </>
     )
 }

@@ -1,14 +1,14 @@
 import Item from "./Item"
+import { Container, Row } from 'react-bootstrap'
 
-const ItemList = ({ usuarios }) => {
-    console.log(usuarios)
+const ItemList = ({ items }) => {
+    console.log(items)
     return (
-        <ul>
-            {usuarios.map(usuario => {
-                return <Item usuario={usuario} />
-            })}
-
-        </ul>
+        <Container>
+            <Row>
+                {items.map(prod => <Item producto={prod} />)}
+            </Row>
+        </Container>
     )
 }
 

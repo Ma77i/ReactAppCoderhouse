@@ -24,12 +24,11 @@ const ItemCount = ({ stock , initial , onAdd }) => {
 
     return (
         <>
-            
             <Container>
-                <Button variant="primary" className="mx-1" onClick={restarContador}> - </Button>
-                <Button variant="secondary" className="mx-1" onClick={restarContador}>Cantidad: {contador}</Button>
-                <Button variant="primary" className="mx-1" onClick={aumentarContador}> + </Button>
-                <Button variant="primary" className="mx-1" onClick={confirmar}> Confirmar </Button>
+                <Button variant="dark" className="m-3" onClick={restarContador}> - </Button>
+                <Button variant="secondary" className="m-3" onClick={restarContador}>Cantidad: {contador}</Button>
+                <Button variant="dark" className="m-3" onClick={aumentarContador}> + </Button>
+                <Button variant="dark" className="m-3" onClick={confirmar}> Confirmar </Button>
             </Container>
         </>
     )

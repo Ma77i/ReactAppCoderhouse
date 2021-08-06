@@ -2,37 +2,37 @@ import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from "react"
-import { POKES } from "../usuarios"
+import { POKES } from "../data"
 
 
-const ItemListContainer = (greeting) => {
+const ItemListContainer = ({greeting}) => {
 
-    const [usuarios, setUsuarios] = useState([])
+    const [data, setData] = useState([])
 
     useEffect(() => {
 
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
                 console.log("Llegue al setTimeOut?");
-                resolve(usuarios)
+                resolve(POKES)
             }, 2000)
         })
 
-        promise.then((usuarios) => {
+        promise.then(() => {
             console.log("llegamos");
-            setUsuarios(POKES)})
+            setData(POKES)})
 
-    }, [])
+    });
 
-
+//FUNCION PARA AGREGAR CANTIDADES
     const onAdd = (cantidad) => {
         console.log(cantidad)
     }
 
     return (
-        <Container>
-            <h1>{greeting.welcome}</h1>
-            <ItemList usuarios={usuarios} />
+        <Container className="p-0">
+            <h1>{greeting}</h1>
+            <ItemList items={data} />
             <ItemCount stock={5} initial={1} onAdd={onAdd} />
         </Container>
     )
