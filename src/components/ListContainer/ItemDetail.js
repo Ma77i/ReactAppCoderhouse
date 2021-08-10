@@ -7,22 +7,17 @@ const ItemDetail = ({ item }) => {
 
         /*Desarrolla la vista de detalle expandida del producto con su imagen título, descripción y precio*/
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+            <Card.Img variant="top" src={item.image} />
             <Card.Body>
                 <Card.Title>{item.title}</Card.Title>
-                <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
-                </Card.Text>
+                <Card.Text>{item.description}</Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-                <ListGroupItem>Cras justo odio</ListGroupItem>
-                <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-                <ListGroupItem>Vestibulum at eros</ListGroupItem>
+                <ListGroupItem>{item.category}</ListGroupItem>
             </ListGroup>
             <Card.Body>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <Card.Link href="#">Comprar</Card.Link>
+                <Card.Link href="#">Agregar al Carrito</Card.Link>
             </Card.Body>
         </Card>
 

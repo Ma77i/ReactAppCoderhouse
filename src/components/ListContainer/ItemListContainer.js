@@ -2,27 +2,52 @@ import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from "react"
+import { useParams } from "react-router";
 import { POKES } from "../data"
 
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({ greeting }) => {
+
 
     const [data, setData] = useState([])
+    const params = useParams()
+    console.log(params);
 
     useEffect(() => {
+        /*
+        setTimeout(() => {
+            fetch('https://fakestoreapi.com/products?limit=12')
+                .then(res=>res.json())
+                .then(json=> {
+                    console.log(json)
+                    if (params.id) {
+                        setData(json.filter(prod => prod.category === params.id))
+                    } else {
+                        setData(json)
+                    }
+                })
+                .catch("Ocurrió un error al traer los productos")
+        }, 2000);
+        */
 
+        
         const promise = new Promise((resolve, reject) => {
             setTimeout(() => {
-                console.log("Llegue al setTimeOut?");
-                resolve(POKES);
+                console.log("setTimeOut");
+                if (params.id) {
+                    resolve(POKES.filter(prod => prod.category === params.id))
+                } else {
+                    resolve(POKES)
+                };
                 reject("Ocurrió un error al traer los productos")
             }, 2000)
             
         })
 
-        promise.then(() => {
-            console.log("llegamos");
+        promise.then((POKES) => {
+            console.log("Cargado con exito");
             setData(POKES)})
+        
 
     });
 
@@ -32,7 +57,7 @@ const ItemListContainer = ({greeting}) => {
     }
 
     return (
-        <Container className="p-0">
+        <Container>
             <h1>{greeting}</h1>
             <ItemList items={data} />
             <ItemCount stock={5} initial={1} onAdd={onAdd} />
