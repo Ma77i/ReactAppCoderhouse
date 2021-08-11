@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+Aplicacion de E-commerce para proyecto de Coderhouse del curso de React
+Tengo hasta ahora los componentes de inicio, tienda y detalle con routing y navegacion
+
 In the project directory, you can run:
 
 ### `npm start`
@@ -16,7 +19,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
+Launches te test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
