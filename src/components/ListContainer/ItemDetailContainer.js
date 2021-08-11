@@ -1,5 +1,6 @@
-import { useState, useEffect, useParams } from 'react'
+import { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { POKES } from "../data"
 
@@ -7,30 +8,33 @@ import { POKES } from "../data"
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
-    const detailParams = useParams()
     
+    const detailParams = useParams()
     useEffect(() => {
+
 
         const getItems = () => {
             return new Promise((resolve, reject) => {
                 setTimeout(() => {
-                    resolve(POKES.filter(item => item.id === detailParams.id));
+
+                    resolve(POKES.find(item => item.id === detailParams.id));
                     reject("error al traer producto");
-                }, 2000);
+                }, 1000);
+                
             });
         };
 
         setProduct({});
         getItems().then((resolve) => setProduct(resolve));
 
-    }, [detailParams.id]);
+    }, [detailParams]);
+
 
     return (
         <Container>
-            <h1>Items Detallados</h1>
+            <h1>Detalles</h1>
             <ItemDetail item={product} />
-        </Container>
-    )
+        </Container>)
 
 }
 

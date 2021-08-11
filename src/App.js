@@ -1,6 +1,4 @@
 
-
-
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ListContainer/ItemListContainer"
 import "./style.css"
@@ -9,6 +7,8 @@ import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
+
+
 
 const App = () => {
 
