@@ -27,13 +27,8 @@ const App = () => {
                     <Route path='/category/:id'>
                         <ItemListContainer greeting="Bienvenidos a la Tienda" />
                     </Route>
-                    <Route path='/category/:id'>
-                        <ItemListContainer greeting="Bienvenidos a la Tienda" />
-                    </Route>
-                    <Route path='/category/:id'>
-                        <ItemListContainer greeting="Bienvenidos a la Tienda" />
-                    </Route>
-                    <Route path='/detail'>
+
+                    <Route path='/detail/:id' exact>
                         <ItemDetailContainer />
                     </Route>
                     <Route path='/cart' component={Cart}>

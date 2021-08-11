@@ -6,47 +6,29 @@ import { POKES } from "../data"
 
 const ItemDetailContainer = () => {
 
-    const [product, setProduct] = useState([])
+    const [product, setProduct] = useState({})
     const detailParams = useParams()
-    console.log(detailParams);
-
-    const getItems = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(POKES);
-                reject("error al traer producto");
-
-            }, 2000);
-        });
-    };
-
+    
     useEffect(() => {
 
-        setProduct([]);
-        getItems().then((res) => setProduct(res));
+        const getItems = () => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(POKES.filter(item => item.id === detailParams.id));
+                    reject("error al traer producto");
+                }, 2000);
+            });
+        };
 
-/*
-        setTimeout(() => {
-            fetch(`https://fakestoreapi.com/products?limit=12/${detailParams.id}`)
-                .then(res=>res.json())
-                .then(json=> {
-                    console.log(json);
-                    setProduct(json)
-                    
-                })
-                .catch("Ocurrió un error al traer los productos")
-        }, 2000);
-        */
+        setProduct({});
+        getItems().then((resolve) => setProduct(resolve));
 
+    }, [detailParams.id]);
 
-    }, []);
-
-
-    /* JSX que devuelva un ItemDetail (desafío 6b) */
     return (
         <Container>
             <h1>Items Detallados</h1>
-            {product.map(produ => <ItemDetail item={produ} />)}
+            <ItemDetail item={product} />
         </Container>
     )
 

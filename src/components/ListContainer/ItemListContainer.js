@@ -44,12 +44,13 @@ const ItemListContainer = ({ greeting }) => {
             
         })
 
-        promise.then((POKES) => {
+        promise.then((resolve) => {
             console.log("Cargado con exito");
-            setData(POKES)})
+            setData(resolve)
+        })
         
 
-    });
+    }, [params]);
 
 //FUNCION PARA AGREGAR CANTIDADES
     const onAdd = (cantidad) => {
