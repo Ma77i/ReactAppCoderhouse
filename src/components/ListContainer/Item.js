@@ -9,7 +9,7 @@ const Item = ({ producto }) => {
     }
 
     return (
-
+        
         <Card className="m-1 border-3" style={{ width: '16rem' }}>
             <Link to={`/detail/${producto.id}`} className='links'>
                 <Card.Img variant="top" src={producto.image} />
@@ -20,6 +20,21 @@ const Item = ({ producto }) => {
                 </Card.Body>
             </Link>
         </Card>
+        
+        /*
+        <Card className='m-2'>
+        <Link to={`/detail/${producto.id}`} style={{ width: '16rem' }}>
+            <Card.Img variant="top" src={producto.image} width='20%'/>
+            <Card.Body>
+                <Card.Title>{producto.title}</Card.Title>
+                <Card.Text>{producto.price}</Card.Text>
+            </Card.Body>
+            <Card.Footer>
+                <Button variant="primary" onClick={agregar}>Agregar</Button>
+            </Card.Footer>
+            </Link>
+        </Card>
+        */
     )
 };
 

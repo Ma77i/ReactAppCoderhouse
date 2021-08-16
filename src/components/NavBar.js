@@ -11,7 +11,7 @@ const NavBar = () =>
                     <Navbar.Brand><Link to='/' className="links">Mi Tienda</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto">
+                        <Nav className="me-auto" navbarScroll>
                             <Nav.Link><Link to='/' className="links">Inicio</Link></Nav.Link>
                             <Nav.Link><Link to='/tienda' className="links">Tienda</Link></Nav.Link>
                             <Nav.Link><Link to='/category/1' className="links">Ropa</Link></Nav.Link>

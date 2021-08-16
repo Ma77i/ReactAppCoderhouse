@@ -1,5 +1,17 @@
 import { Table } from 'react-bootstrap'
 
+/*
+const CartTemplate = () => {
+    <div>
+
+    </div>
+}
+
+export default CartTemplate
+*/
+
+
+
 
 const Cart = () => {
     return (

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-import { POKES } from "../data"
+import { POKES } from "../../data"
 
 
 const ItemDetailContainer = () => {

@@ -31,7 +31,7 @@ const App = () => {
                     <Route path='/detail/:id' exact>
                         <ItemDetailContainer />
                     </Route>
-                    <Route path='/cart' component={Cart}>
+                    <Route path='/Cart' component={Cart}>
                         <Cart />
                     </Route>
                 </Switch>

@@ -3,7 +3,7 @@ import ItemList from "./ItemList"
 import { Container } from 'react-bootstrap'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router";
-import { POKES } from "../data"
+import { POKES } from "../../data"
 import Loading from "../Loading";
 
 
@@ -43,16 +43,17 @@ const ItemListContainer = ({ greeting }) => {
     }, [params]);
     
         return <>
-            {data.length ?
-                <Container>
-                    <h1>{greeting}</h1>
-                    <ItemList items={data} />
-                </Container>
+                {data.length 
+                ?
+                    <Container>
+                        <h1>{greeting}</h1>
+                        <ItemList items={data} />
+                    </Container>
                 :
-                <Container>
-                    <h1>{greeting}</h1>
-                    <Loading />
-                </Container>}
+                    <Container>
+                        <h1>{greeting}</h1>
+                        <Loading />
+                    </Container>}
                 </>
 }
 
