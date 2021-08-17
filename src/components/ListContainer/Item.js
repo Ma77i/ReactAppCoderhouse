@@ -9,6 +9,7 @@ const Item = ({ producto }) => {
 
     }
 
+
     return (
         
         <Card className="m-1 border-3" style={{ width: '16rem' }}>
@@ -17,8 +18,10 @@ const Item = ({ producto }) => {
                 <Card.Body>
                     <Card.Title>{producto.title}</Card.Title>
                     <Card.Text>{producto.price}</Card.Text>
-                    <Button variant="primary" onClick={agregar}>Agregar</Button>
                 </Card.Body>
+                <Card.Footer>
+                <Button variant="primary" onClick={agregar}>Agregar</Button>
+            </Card.Footer>
             </Link>
         </Card>
         
@@ -30,9 +33,7 @@ const Item = ({ producto }) => {
                 <Card.Title>{producto.title}</Card.Title>
                 <Card.Text>{producto.price}</Card.Text>
             </Card.Body>
-            <Card.Footer>
-                <Button variant="primary" onClick={agregar}>Agregar</Button>
-            </Card.Footer>
+
             </Link>
         </Card>
         */

@@ -1,8 +1,11 @@
-import CartWidget from "./CartWidget"
+import CartWidget from "../Context/CartWidget"
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
-const NavBar = () =>
+const NavBar = () => {
+
+
+    return (    
     <nav>
         <>
             <Navbar bg="dark" variant="dark" sticky="top" collapseOnSelect expand="sm">
@@ -28,5 +31,6 @@ const NavBar = () =>
         </>     
         
     </nav>
-
+    )
+}
     export default NavBar

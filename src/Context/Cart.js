@@ -1,19 +1,14 @@
 import { Table } from 'react-bootstrap'
-
-/*
-const CartTemplate = () => {
-    <div>
-
-    </div>
-}
-
-export default CartTemplate
-*/
-
-
+import { useContext } from "react";
+import CartContext from './CartContext';
 
 
 const Cart = () => {
+
+    let context = useContext(CartContext)
+
+
+
     return (
         <>
             <div>
