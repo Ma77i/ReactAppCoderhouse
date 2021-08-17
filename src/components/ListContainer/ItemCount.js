@@ -1,5 +1,5 @@
-import {useState} from 'react'
-import {Button, Container} from 'react-bootstrap';
+import {useState, useEffect} from 'react'
+import {Button, Container, Badge} from 'react-bootstrap';
 
 
 
@@ -26,12 +26,14 @@ const ItemCount = ({ stock , initial , onAdd }) => {
             onAdd(contador)
         }
     }
+    
+    useEffect(() => {setContador(initial)},[initial])
 
     return (
         <>
             <Container>
                 <Button variant="dark" className="m-1" onClick={restarContador}> - </Button>
-                <Button variant="secondary" className="m-1" disabled>Cantidad: {contador}</Button>
+                <Badge bg="secondary">{contador}</Badge>
                 <Button variant="dark" className="m-1" onClick={aumentarContador} > + </Button>
                 <Button variant="dark" className="m-3" onClick={confirmar}> Confirmar </Button>
             </Container>

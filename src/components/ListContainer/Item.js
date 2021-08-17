@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 const Item = ({ producto }) => {
 
     const agregar = () => {
-        console.log(producto.id)
+        console.log("Stock:" + producto.stock + "\nID:" + producto.id )
+
     }
 
     return (
