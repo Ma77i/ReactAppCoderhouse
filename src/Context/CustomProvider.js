@@ -1,91 +1,111 @@
+import { useState } from "react";
+import { Provider } from "../Context/CartContext";
 
-import { Provider } from './CartContext'
 
 const CustomProvider = ({children}) => {
 
-    const addItem = () => {
-        console.log('Agregado')
+    const [carro, setCarro] = useState([])
+
+    const addItem = (item) => {
+
+        setCarro([...carro,item]);
     }
 
-    return(
-        <Provider value={{addItem}}>
+    const removeItem = (itemId) => {}
+
+    const clear = () => {}
+
+    const isInCart = (id) => {}
+
+    return (
+        <Provider value={carro, addItem, removeItem, clear}>
             {children}
         </Provider>
+
     )
+}
 
-/*    
-    const [items, setItems] = useState([])
 
-    const addItem = (itemId, quantity) => {
-        if (isInCart(itemId)) {
-            // Este caso nunca se puede dar porque el botón de agregar al carrito
-            // queda oculta después de agregar un producto.
-            // Pero el desafío es el desafío...
-            console.log('Error: el producto ya fue agregado.')
-            return
-        }
 
-        setItems([...items, {id: itemId, quantity: quantity}])
-    }
 
-    const removeItem = (itemId) => {
-        setItems(items.filter(item => item.id !== itemId))
-    }
 
-    const clear = () => {
-        setItems([])
-    }
 
-    const isInCart = (id) => {
-        return items.filter(item => item.id === id).length === 1
-    }
 
-    const getIds = () =>
-        (items.length === 0) ? [] : items.map(item => item.id)
 
-    const getProductQuantity = (id) => {
-        if (items.length === 0) {
-            return 0
-        }
 
-        const found = items.find(item => item.id === id)
-        return found ? found.quantity : 0
-    }
 
-    const getTotalQuantity = () => {
-        if (items.length === 0) {
-            return 0
-        }
 
-        if (items.length === 1) {
-            return items[0].quantity
-        } else {
-            return items.reduce((sum, item) => {
-                if (typeof sum === 'object') {
-                    sum = sum.quantity
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+const CartProvider = ({ defaultState = [],children}) => {
+
+    const [carrito, setCarrito] = useState(defaultState);
+    const [precioTotal, setPrecioTotal] = useState(0);
+    const [cartelAviso, setCartelAviso] = useState("");
+
+    let frases = ["ya se encuentra en el carrito!", "Nada que agregar", "Todo listo!", "Vamos a eso!", "...un poco insistente...", "que tal si pasas por la tienda?", "cámbiale marge!", "No de nuevo decía!", "Aquí vamos otra vez", "No se si debiera...", "Eso no es posible", "No me la class=container", "hacele click al changuito del super..."];
+
+    useEffect( () => {
+        const total = Object.values(carrito).reduce( (acumulador, {cantidad, precio}) => acumulador + cantidad * precio, 0);
+        setPrecioTotal(total);
+    }, [carrito, precioTotal]);
+
+    function agregarAlCarrito (producto, nuevaCantidad) {
+        let yaExiste = carrito.find( (item) => item.id === producto.id);
+        if (yaExiste) {
+            if (yaExiste.cantidad === nuevaCantidad) {
+                let frase = frases[Math.floor(Math.random()*frases.length)];
+                setCartelAviso(frase);
+                setTimeout( () => {setCartelAviso("")}, 900);
+                return null;
+            } else {
+                const newProductos = carrito.map( (item) => {
+                    if (item.id === producto.id) {
+                        return {...item, cantidad: nuevaCantidad};
+                    } return item;
                 }
-                return sum + item.quantity
-            })
+            )
+            setCarrito([...newProductos]);
+            setCartelAviso(`${producto.nombre} cambió su cantidad a ${nuevaCantidad}, en el carrito`);
+            setTimeout( () => {setCartelAviso("")}, 2000);
+            }
+        } else {
+            setCarrito([...carrito, {...producto, cantidad: nuevaCantidad}]);
+            setCartelAviso( `${producto.nombre} se agregó al carrito`);
+            setTimeout( () => {setCartelAviso("")}, 2000);
         }
     }
 
-    const providerValues = {
-        items: items,
-        addItem: addItem,
-        removeItem: removeItem,
-        clear: clear,
-        isInCart: isInCart,
-        getProductQuantity: getProductQuantity,
-        getTotalQuantity: getTotalQuantity,
-        getIds: getIds,
+    function borrarDelCarrito (nombre, id) {
+        const borrar = carrito.filter( (item) => item.id !== id);
+        setCarrito(borrar);
+        setCartelAviso( `${nombre} se borró del carrito`);
+        setTimeout( () => {setCartelAviso("")}, 2000);
+    }
+
+    function vaciarCarrito () {
+        setCarrito(defaultState);
+        setCartelAviso( `se vació el carrito`);
+        setTimeout( () => {setCartelAviso("")}, 2000);
     }
 
     return (
-        <Provider value={providerValues}>
-            {children}
-        </Provider>
-    )
-*/
+    <Provider value={{carrito, setCarrito, agregarAlCarrito, borrarDelCarrito, vaciarCarrito, precioTotal, cartelAviso}}>
+        {children}
+    </Provider>
+    );
 }
-
-export default CustomProvider
+*/
+export default CustomProvider;

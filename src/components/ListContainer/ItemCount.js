@@ -3,7 +3,7 @@ import {Button, Container, Badge} from 'react-bootstrap';
 
 
 
-const ItemCount = ({ id, stock , initial , onAdd }) => {
+const ItemCount = ({stock , initial , onAdd }) => {
 
     const [contador,setContador] = useState(initial)
 
@@ -23,7 +23,7 @@ const ItemCount = ({ id, stock , initial , onAdd }) => {
 
     const confirmar = () => {
         if(stock > 0){
-            onAdd(id, contador)
+            onAdd(contador)
         }
     }
     
