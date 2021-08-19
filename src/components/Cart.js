@@ -1,28 +1,25 @@
-//import { Table } from 'react-bootstrap'
+
 import { useContext } from "react";
-import CartContext from './CartContext';
-import ItemCart from "./ItemCart";
-import tachito from "../tachito_borrar.svg"
-import { Link } from 'react-router-dom'
+import contexto from '../Context/CartContext';
 
 const Cart = () => {
 
-    const {carrito, borrarDelCarrito, vaciarCarrito, precioTotal} = useContext(CartContext);
+    const { carro , removeItem , clear } = useContext(contexto)
 
     
-    return (
-        <>
-            <h2>Carrito de compras</h2>
-            { carrito.length > 0 ? <div className="vaciar_carrito"><img onClick={vaciarCarrito} src={tachito} alt="" /><p>vaciar el carrito</p></div> : null } 
-            <section>
-            { carrito.length > 0 ? carrito.map( (item) => <ItemCart key={item.id} item={item} borrarDelCarrito={borrarDelCarrito} />) : <article><div className="sinstock_nohay">No hay productos en tu carrito. Te invitamos a que visites nuestra <Link to={`/tienda`}><span className="sin_items">Tienda</span></Link></div></article>}
-            </section>
-            { carrito.length > 0 ?
-            <div className="total"><div className="importe__total"><p>Total: $<span> {precioTotal}</span></p><button id="botonCheckout" className="checkout" href="">Check out</button></div></div>
-            : null
-            }
-        </>
-    );
+    return ( 
+        <div>
+            {
+                carro.length ? (
+                    carro.map(item =>
+                <div key={item.id}>
+                    {item.title} x {item.quantity} - ${item.price * item.quantity}
+                    <button onClick={()=>removeItem(item.id)}>borrar</button>
+                    <button onClick={()=>clear(item)}>limpiar</button>
+                </div>
+            )) : <h2>No hay productos en el Carro</h2>}
+        </div>
+    )
 
 
 /*

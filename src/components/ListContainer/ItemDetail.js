@@ -2,12 +2,12 @@ import { Card, ListGroup, ListGroupItem, Container, Button } from 'react-bootstr
 import ItemCount from "./ItemCount"
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import CartContext from '../../Context/CartContext'
+import contexto from '../../Context/CartContext'
 
 
 const ItemDetail = ({ item }) => {
 
-    const {addItem} = useContext(context)
+    const {addItem, isInCart} = useContext(contexto)
 
     const [unidades, setUnidades] = useState()
     const onAdd = (cantidad) => {
@@ -18,9 +18,17 @@ const ItemDetail = ({ item }) => {
             //item : item,
             quantity : cantidad,
             ...item
+
         }
-        console.log(ItemToAdd);
+
+        if (isInCart(item.id)) {
+            alert("Ya esta en el carrito")
+        }else{
+            addItem(ItemToAdd)
+        }
     }
+
+
 
 
 

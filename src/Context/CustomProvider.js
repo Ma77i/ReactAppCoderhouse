@@ -7,18 +7,28 @@ const CustomProvider = ({children}) => {
     const [carro, setCarro] = useState([])
 
     const addItem = (item) => {
-
         setCarro([...carro,item]);
     }
 
-    const removeItem = (itemId) => {}
+    const removeItem = (itemId) => {
+        const eliminar = carro.filter(item=>itemId !== item.id)
+        setCarro(eliminar)
+    }
 
-    const clear = () => {}
+    const clear = () => {
+        setCarro([])
+    }
 
-    const isInCart = (id) => {}
+    const isInCart = (id) => {
+        return carro.some(producto=>producto.id === id)
+    }
+
+    const contexto_para_consumir = {carro,addItem,removeItem,clear,isInCart}
+
+    console.log(carro)
 
     return (
-        <Provider value={carro, addItem, removeItem, clear}>
+        <Provider value={ contexto_para_consumir}>
             {children}
         </Provider>
 
