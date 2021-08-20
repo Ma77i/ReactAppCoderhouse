@@ -1,6 +1,7 @@
 
 import { useContext } from "react";
 import contexto from '../Context/CartContext';
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -17,7 +18,7 @@ const Cart = () => {
                     <button onClick={()=>removeItem(item.id)}>borrar</button>
                     <button onClick={()=>clear(item)}>limpiar</button>
                 </div>
-            )) : <h2>No hay productos en el Carro</h2>}
+            )) : <h2>No hay productos en el Carro, visite nuestra <Link to='/tienda'>tienda</Link></h2>}
         </div>
     )
 

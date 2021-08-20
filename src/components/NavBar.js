@@ -1,8 +1,12 @@
-import CartWidget from "../Context/CartWidget"
+import CartWidget from "./CartWidget"
 import {Navbar, Container, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import contexto from "../Context/CartContext";
+import { useContext } from "react"; 
 
 const NavBar = () => {
+
+    const { carro } = useContext(contexto)
 
 
     return (    
@@ -20,7 +24,9 @@ const NavBar = () => {
                             <Nav.Link><Link to='/category/2' className="links">CAT2</Link></Nav.Link>
                             <Nav.Link><Link to='/category/3' className="links">CAT3</Link></Nav.Link>
                         </Nav>
-                        <CartWidget />
+                        {(carro.length > 0) ?
+                            (<CartWidget />) : <br />
+                        }
                     </Navbar.Collapse>
                     
                 </Container>
