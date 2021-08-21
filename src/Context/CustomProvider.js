@@ -23,7 +23,25 @@ const CustomProvider = ({children}) => {
         return carro.some(producto=>producto.id === id)
     }
 
-    const contexto_para_consumir = {carro,addItem,removeItem,clear,isInCart}
+    const getTotalQuantity = () => {
+        if (carro.length === 0) {
+            return 0
+        }
+
+        if (carro.length === 1) {
+            return carro[0].quantity
+        } else {
+            return carro.reduce((sum, item) => {
+                if (typeof sum === 'object') {
+                    sum = sum.quantity
+                }
+                return sum + item.quantity
+            })
+        }
+    }
+
+
+    const contexto_para_consumir = {carro,addItem,removeItem,clear,isInCart, getTotalQuantity}
 
     console.log(carro)
 

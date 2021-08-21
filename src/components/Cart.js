@@ -15,6 +15,8 @@ const Cart = () => {
                     carro.map(item =>
                 <div key={item.id}>
                     {item.title} x {item.quantity} - ${item.price * item.quantity}
+                    <span onClick={()=>removeItem(item.id)} className="material-icons-outlined">delete</span>
+                    <span className="material-icons links">delete</span>
                     <button onClick={()=>removeItem(item.id)}>borrar</button>
                     <button onClick={()=>clear(item)}>limpiar</button>
                 </div>
