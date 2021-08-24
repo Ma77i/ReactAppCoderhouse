@@ -53,7 +53,6 @@ const ItemDetail = ({ item }) => {
                     ) : (
 
                         <Card.Body>
-                            <Link> Agregar al Carrito </Link>
                             <ItemCount stock={item.stock} initial={item.stock >= 1 ? 1 : 0} onAdd={onAdd} />
                         </Card.Body>
                     )
