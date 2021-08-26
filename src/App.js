@@ -1,11 +1,12 @@
 
 import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ListContainer/ItemListContainer"
-import "./style.css"
+import ItemListContainer from "./components/ListContainer/ItemListContainer";
+import "./style.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer"
+import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
+import Form from "./components/Form";
 import Cart from "./components/Cart";
 import CustomProvider from "./Context/CustomProvider";
 
@@ -35,6 +36,8 @@ const App = () => {
                             <ItemDetailContainer />
                         </Route>
                         <Route path='/Cart' component={Cart} />
+
+                        <Route path='/form' component={Form}/>
                     </Switch>
                 </div>
             </BrowserRouter>

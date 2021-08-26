@@ -11,23 +11,8 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
     const [state, setState] = useState('pendiente')
     const detailParams = useParams()
+    
     useEffect(() => {
-
-/*
-        const getItems = () => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-
-                    resolve(POKES.find(item => item.id === detailParams.id));
-                    reject("error al traer producto");
-                }, 1000);
-                
-            });
-        };
-
-        setProduct({});
-        getItems().then((resolve) => setProduct(resolve));
-*/
 
         const dataBase = firestore;
         const collection = dataBase.collection('products');

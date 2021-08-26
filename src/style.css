@@ -96,3 +96,13 @@ th, td {
     width: 50%;
     margin: 2%;
 }
+
+.form {
+    margin: 5%;
+}
+
+.form__camp {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0;
+}

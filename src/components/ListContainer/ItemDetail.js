@@ -8,8 +8,8 @@ import contexto from '../../Context/CartContext'
 const ItemDetail = ({ item }) => {
 
     const {addItem, isInCart} = useContext(contexto)
-
     const [unidades, setUnidades] = useState()
+
     const onAdd = (cantidad) => {
         //console.log('State Uplifting, recibi la cantidad de un elemento hijo')
         setUnidades(cantidad)
