@@ -47,7 +47,7 @@ const ItemDetail = ({ item }) => {
                 {
                     unidades > 0 ? (
                         <Card.Body>
-                            <Button variant="dark" onClick={() => setUnidades(0)}>Editar Compra</Button>
+                            <Button variant="dark" onClick={() => setUnidades(0)}><Link className="links m-1" to='/tienda'> Seguir comprando </Link></Button>
                             <Button variant="dark"><Link className="links m-1" to='/Cart'> Terminar Compra </Link></Button>
                         </Card.Body>
                     ) : (

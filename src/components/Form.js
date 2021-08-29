@@ -23,19 +23,19 @@ const Form = () => {
         setMail(e.target.value)
     }
 
-    const saveOrder = (e) => {
-        e.preventDefault()
+    const saveOrder = () => {
         if (validate) {
             const buyer = { name, phone, mail };
             console.log('Nombre: '+ buyer.name +'\nTeléfono: '+ buyer.phone+'\nEmail: '+ buyer.mail);
             setError(false)
         } else {
+            console.log('Complete todos los campos');
             setError(true)
         }
     }
 
     const validate = () => {
-        if (name.length && phone.trim().length && mail.trim().length) {
+        if (name.trim().length && phone.trim().length && mail.trim().length) {
             return true
         } else {
             return false
@@ -43,10 +43,13 @@ const Form = () => {
     }
 
     return (
+        
         <div className='form'>
+            
             <h1>Finalizar compra</h1>
-            {error ? <Alert variant="danger">Por favor complete todos los datos!!!</Alert> : null}
+            
             <div className='form__camp'>
+            {error ? <Alert variant="danger">Por favor complete todos los datos!!!</Alert> : null}
                 <label htmlFor="input">Ingrese su nombre</label>
                 <input type="text" placeholder='Nombre' onChange={saveName} />
             </div>
