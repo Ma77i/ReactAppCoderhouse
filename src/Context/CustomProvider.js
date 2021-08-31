@@ -6,6 +6,7 @@ const CustomProvider = ({children}) => {
 
     const [carro, setCarro] = useState([])
     const [total, setTotal] = useState(0)
+    
     const [orderId, setOrderId] = useState();
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
@@ -67,8 +68,6 @@ const CustomProvider = ({children}) => {
         total, setTotal, 
         totalPrice
     }
-
-    console.log(carro)
 
     return (
         <Provider value={ contexto_para_consumir}>

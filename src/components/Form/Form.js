@@ -1,5 +1,5 @@
 import { Button, Alert } from 'react-bootstrap'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {firestore} from '../../firebase'
 import firebase from 'firebase/app';
 import 'firebase/firestore'
@@ -12,13 +12,11 @@ const Form = () => {
 
     const [error, setError] = useState(false)
     
-
-    const { carro, total, clear, setOrderId, name, setName, phone, setPhone, mail, setMail } = useContext(contexto)
-    // Add a new document with a generated id.
+    const { carro, total, setOrderId, name, setName, phone, setPhone, mail, setMail } = useContext(contexto)
+    
     const dataBase = firestore;
     const order = dataBase.collection('order');
 
-    console.log(order);
 
     const saveName = (e) => {
         setName(e.target.value)
@@ -38,21 +36,21 @@ const Form = () => {
             const newOrder = {
                 buyer: { name, phone, mail },
                 items: carro,
-                fecha: firebase.firestore.Timestamp.fromDate(new Date()),
+                data: firebase.firestore.Timestamp.fromDate(new Date()),
                 total: total,
             };
             order.add(newOrder).then(({ id }) => {
                 setOrderId(id);
-                console.log(id);
+                console.log('ID de compra', id);
                 setError(false)
-                clear();
+                //clear();
             }).catch(error => {
                 setError(error);
             }).finally(() => {
                 setError(false)
-                setMail("");
-                setName("");
-                setPhone("");
+                //setMail("");
+                //setName("");
+                //setPhone("");
             });
         } else {
             setError(true)
