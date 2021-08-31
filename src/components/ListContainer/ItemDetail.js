@@ -11,11 +11,9 @@ const ItemDetail = ({ item }) => {
     const [unidades, setUnidades] = useState()
 
     const onAdd = (cantidad) => {
-        //console.log('State Uplifting, recibi la cantidad de un elemento hijo')
         setUnidades(cantidad)
 
         const ItemToAdd = {
-            //item : item,
             quantity : cantidad,
             ...item
 

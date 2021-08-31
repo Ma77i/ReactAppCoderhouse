@@ -6,10 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import Form from "./components/Form";
+import Form from "./components/Form/Form";
 import Cart from "./components/Cart";
 import CustomProvider from "./Context/CustomProvider";
-
+import OrderReady from "./components/Form/OrderReady";
 
 const App = () => {
 
@@ -38,6 +38,8 @@ const App = () => {
                         <Route path='/Cart' component={Cart} />
 
                         <Route path='/form' component={Form}/>
+
+                        <Route path='/OrderReady' component={OrderReady}/>
                     </Switch>
                 </div>
             </BrowserRouter>

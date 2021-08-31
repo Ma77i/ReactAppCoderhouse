@@ -60,7 +60,8 @@ const ItemListContainer = ({ greeting }) => {
                     <Container>
                         <h1>{greeting}</h1>
                         <Loading />
-                    </Container>}
+                    </Container>
+                }
                 </>
 }
 

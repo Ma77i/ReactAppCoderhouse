@@ -1,15 +1,24 @@
 import { Button, Alert } from 'react-bootstrap'
-import { useState } from "react";
-
-
+import { useState, useEffect } from "react";
+import {firestore} from '../../firebase'
+import firebase from 'firebase/app';
+import 'firebase/firestore'
+import { useContext } from "react";
+import contexto from '../../Context/CartContext';
+import { Link } from 'react-router-dom'
 
 const Form = () => {
 
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
-    const [mail, setMail] = useState("")
-    const [error, setError] = useState(false)
 
+    const [error, setError] = useState(false)
+    
+
+    const { carro, total, clear, setOrderId, name, setName, phone, setPhone, mail, setMail } = useContext(contexto)
+    // Add a new document with a generated id.
+    const dataBase = firestore;
+    const order = dataBase.collection('order');
+
+    console.log(order);
 
     const saveName = (e) => {
         setName(e.target.value)
@@ -24,12 +33,28 @@ const Form = () => {
     }
 
     const saveOrder = () => {
+        
         if (validate) {
-            const buyer = { name, phone, mail };
-            console.log('Nombre: '+ buyer.name +'\nTeléfono: '+ buyer.phone+'\nEmail: '+ buyer.mail);
-            setError(false)
+            const newOrder = {
+                buyer: { name, phone, mail },
+                items: carro,
+                fecha: firebase.firestore.Timestamp.fromDate(new Date()),
+                total: total,
+            };
+            order.add(newOrder).then(({ id }) => {
+                setOrderId(id);
+                console.log(id);
+                setError(false)
+                clear();
+            }).catch(error => {
+                setError(error);
+            }).finally(() => {
+                setError(false)
+                setMail("");
+                setName("");
+                setPhone("");
+            });
         } else {
-            console.log('Complete todos los campos');
             setError(true)
         }
     }
@@ -45,11 +70,11 @@ const Form = () => {
     return (
         
         <div className='form'>
-            
+            {error ? <Alert variant="danger">Por favor complete todos los datos!!!</Alert> : null}
             <h1>Finalizar compra</h1>
             
             <div className='form__camp'>
-            {error ? <Alert variant="danger">Por favor complete todos los datos!!!</Alert> : null}
+            
                 <label htmlFor="input">Ingrese su nombre</label>
                 <input type="text" placeholder='Nombre' onChange={saveName} />
             </div>
@@ -61,7 +86,7 @@ const Form = () => {
                 <label htmlFor="input">Ingrese su Email</label>
                 <input type="text" placeholder='Email' onChange={saveMail} />
             </div>
-            <Button onClick={saveOrder}>Guardar</Button>
+            <Button onClick={saveOrder}><Link to='/OrderReady'>Finalizar</Link></Button>
         </div>
     )
 }
