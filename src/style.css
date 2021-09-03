@@ -76,6 +76,7 @@ h1, h2, h4 {
     text-decoration: underline;
     cursor: pointer;
 }
+
 th, td {
     margin: 2%;
     padding: 1%;
@@ -98,11 +99,35 @@ th, td {
 }
 
 .form {
-    margin: 5%;
+    margin: 5% 15%;
+    border: 1px solid gray;
+    border-radius: 2%;
+    padding: 2% 5%;
 }
 
 .form__camp {
     display: flex;
     flex-direction: column;
     margin: 2% 0;
+}
+
+
+.containerOrder {
+    margin: 2% 15%;
+}
+
+.boxOrder {
+    border: 1px solid black;
+    border-radius: 1%;
+    padding: 2% 3%;
+}
+
+.detailOrder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.detailOrder p {
+    text-decoration: underline;
 }

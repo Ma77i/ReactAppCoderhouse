@@ -33,13 +33,13 @@ const ItemDetail = ({ item }) => {
     return (
         <Container className="d-flex justify-content-center">
             <Card style={{ width: '25rem' }}>
-                <Card.Img variant="top" src={item.image} />
+                <Card.Img variant="left" src={item.image} />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>{item.description}</Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
-                    <ListGroupItem>{item.category}</ListGroupItem>
+                    <ListGroupItem>Categoria: {item.category}</ListGroupItem>
                 </ListGroup>
 
                 {

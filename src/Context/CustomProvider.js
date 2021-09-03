@@ -1,21 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Provider } from "../Context/CartContext";
+import { firestore } from "../firebase";
+import firebase from 'firebase/app';
+import 'firebase/firestore'
 
 
 const CustomProvider = ({children}) => {
 
     const [carro, setCarro] = useState([])
-    const [total, setTotal] = useState(0)
-    
-    const [orderId, setOrderId] = useState();
-    const [name, setName] = useState("")
-    const [phone, setPhone] = useState("")
-    const [mail, setMail] = useState("")
+    const [totalPrice, setTotalPrice] = useState(0)
 
-    const totalPrice = () => {
+    const [orderId, setOrderId] = useState();
+    const [error, setError] = useState(false)
+    const [comprador, setComprador] = useState({
+        name: "",
+        mail: "",
+        phone: ""
+    });
+
+    useEffect(() => {
         const totalFinal = Object.values(carro).reduce((acumulador, { quantity, price }) => acumulador + quantity * price, 0);
-        setTotal(totalFinal);
-    }    
+        setTotalPrice(totalFinal);
+    }, [carro, totalPrice])
+    
 
     const addItem = (item) => {
         setCarro([...carro,item]);
@@ -24,7 +31,6 @@ const CustomProvider = ({children}) => {
     const removeItem = (itemId) => {
         const eliminar = carro.filter(item=>itemId !== item.id)
         setCarro(eliminar)
-        totalPrice()
     }
 
     const clear = () => {
@@ -52,6 +58,46 @@ const CustomProvider = ({children}) => {
         }
     }
 
+    const dataBase = firestore;
+    const order = dataBase.collection('order');
+
+    const dataHandler = (e) => {
+        setComprador( { ...comprador, [e.target.name] : e.target.value } );
+    }
+
+    const saveOrder = () => {
+        
+        if (validate) {
+            const newOrder = {
+                buyer: comprador,
+                items: carro,
+                data: firebase.firestore.Timestamp.fromDate(new Date()),
+                total: totalPrice,
+            };
+            order.add(newOrder).then(({ id }) => {
+                setOrderId(id);
+                console.log('ID de compra', id);
+                setError(false)
+                //clear();
+            }).catch(error => {
+                setError(error);
+            }).finally(() => {
+                setError(false)
+            });
+        } else {
+            setError(true)
+        }
+    }
+    console.log(comprador.name.trim())
+
+    const validate = () => {
+        if (comprador.name.trim().length && comprador.phone.trim().length && comprador.mail.trim().length) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 
     const contexto_para_consumir = {
         orderId, 
@@ -62,11 +108,11 @@ const CustomProvider = ({children}) => {
         clear,
         isInCart, 
         getTotalQuantity, 
-        phone, setPhone,
-        name, setName,
-        mail,setMail,
-        total, setTotal, 
-        totalPrice
+        totalPrice, setTotalPrice,
+        error, setError,
+        saveOrder,
+        dataHandler,
+        comprador
     }
 
     return (

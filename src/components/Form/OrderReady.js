@@ -1,33 +1,25 @@
 import { useContext } from "react"
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom"
 import contexto from "../../Context/CartContext"
 
 const OrderReady = () => {
 
-    const { carro, total, orderId, name, phone, mail } = useContext(contexto)
-    
+    const { orderId, clear, comprador } = useContext(contexto)
+
     return (
-        <div>
-            <p>Compra realizada con exito. Su orden de compra es: {orderId}</p><hr />
-            <fieldset>
-                <legend>
-                    <h3>Detalles de la compra</h3>
-                </legend>
-                <div>
-                <p>Nombre: {name}</p>
-                <p>Teléfono: {phone}</p>
-                <p>Mail: {mail}</p>
-            </div>
-            {carro.map(item=>
-                <div key={item.id}>
-                    <p>Productos: {item.title}</p>
-                    <p>Cantidad: {item.quantity}</p>
-                    <p>Precio: {item.price * item.quantity}</p>
+        <div className='containerOrder'>
+            <p>Compra realizada con exito. Su orden de compra es: <strong>{orderId}</strong></p><hr />
+            <div className='boxOrder'>
+                <h2>Detalles de la compra</h2>
+                <div className='detailOrder'>
+                    <p>Nombre: {comprador.name}</p>
+                    <p>Teléfono: {comprador.phone}</p>
+                    <p>Mail: {comprador.mail}</p>
                 </div>
-            )}
-            
-            <strong>Total: {total}</strong>
-            </fieldset>
-            
+            <Button variant='dark' onClick={clear}><Link to='/tienda' className='links'>Volver a la tienda</Link></Button>
+        </div>
+
 
         </div>
     )

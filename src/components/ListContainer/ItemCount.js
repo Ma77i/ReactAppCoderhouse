@@ -33,7 +33,8 @@ const ItemCount = ({stock , initial , onAdd }) => {
                 <Button variant="dark" className="m-1" onClick={restarContador}> - </Button>
                 <Badge bg="secondary">{contador}</Badge>
                 <Button variant="dark" className="m-1" onClick={aumentarContador} > + </Button>
-                <Button variant="dark" className="m-3" onClick={confirmar}> Agregar al carrito </Button>
+                <Button variant="dark" className="m-3" onClick={confirmar}>Agregar al carrito 
+                </Button>
             </Container>
             
         </>
