@@ -8,7 +8,7 @@ const Cart = () => {
     const { carro, removeItem, clear, totalPrice} = useContext(contexto)
 
     return (
-        <div>
+        <>
             <h1>Tu carrito</h1>
             <h4><Link to='/tienda'>Seguir comprando</Link></h4>
             <div className="contenedor__Cart">
@@ -55,7 +55,7 @@ const Cart = () => {
                         <div className='cart__footer'>
                             <div className='cart__form'>
                                 <label htmlFor="noteId">¿Tenés algún comentario especial sobre tu orden?</label>
-                                <textarea name="note" id="noteId" cols="5" rows="10"></textarea>
+                                <textarea name="note" id="noteId" cols="2" rows="10"></textarea>
                             </div>
 
                             <div className='cart__total'>
@@ -70,7 +70,7 @@ const Cart = () => {
                 ) : <h2>Su carrito esta vacio</h2>}
             </div>
 
-        </div>
+        </>
     )
 }
 

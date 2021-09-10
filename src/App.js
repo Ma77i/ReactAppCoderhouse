@@ -1,13 +1,14 @@
 
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ListContainer/ItemListContainer";
-import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from "./components/ListContainer/ItemDetailContainer";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Form from "./components/Form/Form";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
+import "./style.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import CustomProvider from "./Context/CustomProvider";
 import OrderReady from "./components/Form/OrderReady";
 
@@ -26,10 +27,10 @@ const App = () => {
                         </Route>
 
                         <Route path='/tienda'>
-                            <ItemListContainer greeting="Bienvenidos a la Tienda" />
+                            <ItemListContainer greeting="Bienvenidos a la Pokedex" />
                         </Route>
                         <Route path='/category/:id'>
-                            <ItemListContainer greeting="Bienvenidos a la Tienda" />
+                            <ItemListContainer greeting="Bienvenidos a la Pokedex" />
                         </Route>
 
                         <Route path='/detail/:id' exact>
@@ -42,6 +43,7 @@ const App = () => {
                         <Route path='/OrderReady' component={OrderReady}/>
                     </Switch>
                 </div>
+                <Footer />
             </BrowserRouter>
         </CustomProvider>
     )

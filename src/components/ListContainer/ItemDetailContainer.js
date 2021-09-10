@@ -42,17 +42,15 @@ const ItemDetailContainer = () => {
 
     if (state === 'pendiente') {
         return (
-            <Container>
-            <h1>Detalles</h1>
-            <Loading />
-        </Container>
+            <div>
+                <Loading />
+            </div>
         )
     }
 
 
     return (
         <Container>
-            <h1>Detalles</h1>
             <ItemDetail item={product} />
         </Container>
         )

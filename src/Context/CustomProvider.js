@@ -18,6 +18,8 @@ const CustomProvider = ({children}) => {
         phone: ""
     });
 
+    
+
     useEffect(() => {
         const totalFinal = Object.values(carro).reduce((acumulador, { quantity, price }) => acumulador + quantity * price, 0);
         setTotalPrice(totalFinal);

@@ -12,7 +12,7 @@ const Item = ({ producto }) => {
                 <Card.Body>
                     <Card.Title>{producto.title}</Card.Title>
                     <Card.Text>${producto.price}</Card.Text>
-                    <Card.Text>Stock: {producto.stock}</Card.Text>
+                    <Card.Text>Tipo: {producto.description}</Card.Text>
                 </Card.Body>
             </Link>
         </Card>

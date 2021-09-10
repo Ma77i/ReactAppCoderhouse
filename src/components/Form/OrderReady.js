@@ -9,13 +9,11 @@ const OrderReady = () => {
 
     return (
         <div className='containerOrder'>
-            <p>Compra realizada con exito. Su orden de compra es: <strong>{orderId}</strong></p><hr />
             <div className='boxOrder'>
-                <h2>Detalles de la compra</h2>
+                <h2>Compra realizada con exito</h2>
                 <div className='detailOrder'>
-                    <p>Nombre: {comprador.name}</p>
-                    <p>Teléfono: {comprador.phone}</p>
-                    <p>Mail: {comprador.mail}</p>
+                    <h4>¡Muchas gracias {comprador.name}!</h4>
+                    <p>Su orden de compra es: <strong>{orderId}</strong></p>
                 </div>
             <Button variant='dark' onClick={clear}><Link to='/tienda' className='links'>Volver a la tienda</Link></Button>
         </div>
