@@ -1,4 +1,3 @@
-import { Button } from 'react-bootstrap'
 import ItemCount from "./ItemCount"
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
@@ -54,8 +53,8 @@ const ItemDetail = ({ item }) => {
                         </div>            
                         {unidades > 0 ? (
                             <div className='buttonsFinish'>
-                                <button className='buttons' onClick={() => setUnidades(0)}><Link to='/tienda'> Seguir comprando </Link></button>
-                                <button className='buttons'><Link to='/Cart'> Terminar Compra </Link></button>
+                                <button className='buttons m-1' onClick={() => setUnidades(0)}><Link to='/tienda'> Seguir comprando </Link></button>
+                                <button className='buttons m-1'><Link to='/Cart'> Terminar Compra </Link></button>
                             </div>
                         ) : (
                             <div>

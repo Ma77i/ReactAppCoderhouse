@@ -6,7 +6,7 @@ const Item = ({ producto }) => {
 
     return (
         
-        <Card className="m-1 border-3" style={{ width: '16rem' }}>
+        <Card className="m-1 border-3 cardCont" style={{ width: '16rem' }} >
             <Link to={`/detail/${producto.id}`} className='links'>
                 <Card.Img variant="top" src={producto.image} />
                 <Card.Body>

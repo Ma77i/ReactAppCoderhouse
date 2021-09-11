@@ -8,10 +8,12 @@ const CartWidget = () => {
     const { getTotalQuantity } = useContext(contexto)
 
     return (
-        <>
-            <Link to='/Cart' className="material-icons carro links">shopping_cart</Link>
-            <Badge className='unitBadge' bg="danger">{getTotalQuantity()}</Badge>
-        </>
+        <div >
+            <Link to='/Cart' className='cartWidget links'>
+                <Badge bg="danger">{getTotalQuantity()}</Badge>
+                <span className="material-icons carro">shopping_cart</span>
+            </Link>
+        </div>
     )
 }
 

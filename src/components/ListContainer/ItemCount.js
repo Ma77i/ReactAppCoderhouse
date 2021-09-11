@@ -31,9 +31,9 @@ const ItemCount = ({stock , initial , onAdd }) => {
         <>
             <div className='itemCount'>
                 <div className='operators'>
-                    <button className="buttons m-1" onClick={restarContador}> - </button>
+                    <button className="buttons m-2" onClick={restarContador}> - </button>
                     <Badge bg="secondary">{contador}</Badge>
-                    <button className="buttons m-1" onClick={aumentarContador}> + </button>
+                    <button className="buttons m-2" onClick={aumentarContador}> + </button>
                 </div>
                 <button className="buttons m-3" onClick={confirmar}>Agregar al carrito</button>
             </div>
