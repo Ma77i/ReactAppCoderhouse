@@ -1,73 +1,52 @@
-# Getting Started with Create React App
+# Bienvenidos a DrawPokeStore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pryecto creado para el curso de React de Coderhouse [DrawPokeStore](https://github.com/Ma77i/ReactAppCoderhouse).
 
-## Available Scripts
+## Sobre DrawPokeStore
 
-Aplicacion de E-commerce para proyecto de Coderhouse del curso de React
-Tengo hasta ahora los componentes de inicio, tienda y detalle con routing y navegacion
+Tienda E-commerce de fantasia donde la idea a futuro es vender dibujos hechos a mano o digitales sobre pokemon
 
-In the project directory, you can run:
+## Dependecias externas
 
-### `npm start`
+Elegí trabajar con [React-Bootstrap](https://react-bootstrap.github.io/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Inicializando el Proyecto
+Este proyecto fue creado con Create React App.
+Ingresando a la carpeta del proyecto, se puede ejecurar en la consola el siguiente comando:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### npm start
+Correr la aplicación en modo desarrollo.
+Abrir http://localhost:3000 para visualizar el proyecto en el navegador.
 
-### `npm test`
+La página se recargará si se hacen cambios en el código.
+Cualquier error se visualizará en consola.
 
-Launches te test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Estructura
 
-### `npm run build`
+### Home
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Página de inicio donde detallo el motivo de la app y donde incluyo un link para ir a la tienda.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### NavBar
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Barra de navegacion pegada en el tope de la pagina para navegar hacia el home, la tienda, el carrito o las categorias.
 
-### `npm run eject`
+### Tienda
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Página donde se muestran los productos con nombre, imagen, precio y descripción y un link en cada card para ver el detalle de cada producto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Detail
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Página para ver cada producto detallado con imagen, nombre, precio, descripción, stock, eleccion de cantidad, boton para agregar al carrito y link para seguir comprando en la tienda o terminar compra y pasar a carrito.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Carrito
 
-## Learn More
+Página donde se muestra detallado el producto seleccionado con precio, cantidad y total, con botones para quitar un producto individual o vaciar el carrito, y un boton/enlace para finalizar compra y pasar al formulario de validación.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Formulario de validación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Formulario de validación de compra donde se pide Nombre, Teléfono y Mail con boton de submit para obtener ID de orden
 
-### Code Splitting
+### Order Ready
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Página donde se muestra el ID de compra con boton para volver a la tienda
