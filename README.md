@@ -1,4 +1,4 @@
-# Bienvenidos a DrawPokeStore
+# Bienvenidos a [DrawPokeStore](https://drawpokestore.netlify.app/)
 
 Pryecto creado para el curso de React de Coderhouse [DrawPokeStore](https://github.com/Ma77i/ReactAppCoderhouse).
 
@@ -12,7 +12,7 @@ Elegí trabajar con [React-Bootstrap](https://react-bootstrap.github.io/).
 
 ## Inicializando el Proyecto
 Este proyecto fue creado con Create React App.
-Ingresando a la carpeta del proyecto, se puede ejecurar en la consola el siguiente comando:
+En la carpeta del proyecto, se puede ejecutar en consola el siguiente comando:
 
 ### npm start
 Correr la aplicación en modo desarrollo.
@@ -50,3 +50,5 @@ Formulario de validación de compra donde se pide Nombre, Teléfono y Mail con b
 ### Order Ready
 
 Página donde se muestra el ID de compra con boton para volver a la tienda
+
+
