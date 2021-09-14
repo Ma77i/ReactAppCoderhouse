@@ -17,12 +17,12 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto navBar" navbarScroll>
-                        <Nav.Link><Link to='/' className="links">INICIO</Link></Nav.Link>
-                        <Nav.Link><Link to='/tienda' className="links">POKEDEX</Link></Nav.Link>
-                        <NavDropdown title="CATEGORIAS" id="basic-nav-dropdown">
-                            <Link to='/category/1' className="links"><NavDropdown.Item href="#action/3.1">CATEGORIA 1</NavDropdown.Item></Link>
-                            <Link to='/category/2' className="links"><NavDropdown.Item href="#action/3.1">CATEGORIA 2</NavDropdown.Item></Link>
-                            <Link to='/category/3' className="links"><NavDropdown.Item href="#action/3.1">CATEGORIA 3</NavDropdown.Item></Link>
+                        <Nav.Link className='btnNav'><Link to='/' className="links">INICIO</Link></Nav.Link>
+                        <Nav.Link className='btnNav'><Link to='/tienda' className="links">POKEDEX</Link></Nav.Link>
+                        <NavDropdown title="CATEGORIAS" id="basic-nav-dropdown" className='btnNav'>
+                            <Link to='/category/1' className="links"><NavDropdown.Item className='btnNav' href="#action/3.1">CATEGORIA 1</NavDropdown.Item></Link>
+                            <Link to='/category/2' className="links"><NavDropdown.Item className='btnNav' href="#action/3.1">CATEGORIA 2</NavDropdown.Item></Link>
+                            <Link to='/category/3' className="links"><NavDropdown.Item className='btnNav' href="#action/3.1">CATEGORIA 3</NavDropdown.Item></Link>
                         </NavDropdown>
                     </Nav>
                     {(carro.length > 0) ?

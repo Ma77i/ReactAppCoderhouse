@@ -6,8 +6,8 @@
 
 body {
     background-color: #8EC5FC;
-background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
 }
 
 .cuerpo {
@@ -27,11 +27,15 @@ h4 {
 
 .buttons {
     background-color: Transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
+    color: rgb(90, 0, 0);
+    border: 2px solid rgb(90, 0, 0);
+    border-radius: 15px;
+    padding: 8px 25px;
+}
+
+.buttons:hover {
+    background-color: rgb(90, 0, 0);
+    color: #ffffff;
 }
 
 .parrafo {
@@ -41,15 +45,77 @@ h4 {
     width: 45%;
 }
 
+/* LOADING */
+
+.spinner {
+        height: 100%;
+        margin: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.pokemon {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50% );
+    border-radius: 50%;
+    border: 8px solid black;
+    animation: spin 1s linear infinite;
+  }
+  
+  .pokemon::before {
+    content: '';
+    position: absolute;
+    height: 8px;
+    width: 100px;
+    background: black;
+    top: 50px;
+    transform: translatey(-50%);
+  }
+  
+  .pokemon::after {
+    content: '';
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background: white;
+    top: 50px;
+    left: 50px;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 0 8px black, inset 0 0 0 10px white, inset 0 0 0 12px black;
+  
+  }
+  
+  /* Spin Animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 /* NAVBAR*/
 .navBar {
     font-family: 'Bangers', cursive;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+}
+
+.btnNav:hover {
+    text-shadow: 1px 1px 7px rgba(150, 150, 150, 1);
 }
 
 .carro,
 .links {
-    color: #ffffff;
+    color: #fff;
+    text-decoration: none;
+}
+
+.links:hover {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -77,6 +143,7 @@ h4 {
     text-shadow: -1px -1px 1px #000, 1px 1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000;
     -webkit-text-fill-color: #ffffff;
     -webkit-text-stroke: 2px black;
+    margin: 5% 0;
 }
 
 .ingreso:hover {
@@ -84,9 +151,42 @@ h4 {
     border-radius: 50%;
 }
 
+/* ITEM */
+
+.cardCont {
+    background: -webkit-linear-gradient(to bottom, #b31217, #e52d27);
+    background: linear-gradient(to bottom, #b31217, #e52d27);
+    border-radius: 25px !important;
+    -webkit-box-shadow: inset 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: inset 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+    box-shadow: inset 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+}
+
+.cardCont:hover {
+    -webkit-box-shadow: 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+    -moz-box-shadow: 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+    box-shadow: 0px 0px 14px 6px rgba(0, 0, 0, 0.54);
+}
+
+.cardBody {
+    font-family: 'Londrina Solid', cursive;
+    border-top: 1px solid #000;
+}
+
+.productPrice {
+    background: #11e95b;
+    padding: 2px 10px;
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 200;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: -10px 20px 15px -10px rgba(17, 233, 91, 0.3);
+}
+
 /* CART */
 .contenedor__Cart {
-    margin: 5%;
+    width: 80%;
 }
 
 .material-icons {
@@ -121,6 +221,10 @@ h4 {
     padding: 2%;
 }
 
+.quitar {
+    background-color: transparent;
+    border: none;
+}
 
 .quitar:hover {
     text-decoration: underline;
@@ -135,53 +239,192 @@ td {
 }
 
 .cart__footer {
-    display: flex;
-    margin: 5% 5%;
-}
-
-.cart__form {
-    display: flex;
-    flex-direction: column;
-}
-
-.cart__total,
-.cart__form {
-    width: 50%;
-    margin: 2%;
-}
-
-.form {
-    margin: 5% 15%;
-    border: 1px solid gray;
-    border-radius: 2%;
-    padding: 2% 5%;
-}
-
-.form__camp {
-    display: flex;
-    flex-direction: column;
     margin: 2% 0;
 }
 
+.cart__total {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(90, 0, 0);
+}
 
-.containerOrder {
+.carroVacio {
+    margin: 12.5% 0;
+}
+
+/* FORM */
+
+.group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* LABEL ======================================= */
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus~label,
+input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+input:focus~.bar:before,
+input:focus~.bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* active state */
+input:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+
+button[type="submit"] {
+	width:100%;
+	color:rgb(90, 0, 0);
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+    background-color: transparent;
+    border: 2px solid rgb(90, 0, 0);
+    border-radius: 5px;
+    
+}
+
+button[type="submit"]:hover {
+    background-color: rgb(90, 0, 0);
+    color: #ffffff;
+}
+
+.form, .boxOrder {
+    background-color: #aaaaaa75;
     margin: 2% 15%;
+    padding: 2% 5%;
+    border: 1px solid gray;
+    border-radius: 25px;
 }
 
-.boxOrder {
-    border: 1px solid black;
-    border-radius: 1%;
-    padding: 2% 3%;
-}
+/* ORDER READY  */
 
-.detailOrder {
-    justify-content: center;
+.boxOrder, .detailOrder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5%;
 }
 
 .detailOrder p {
     text-decoration: underline;
 }
 
+.detailOrder strong {
+    background-color: #fff;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
 
 /* DETAIL */
 .container__card {
@@ -303,15 +546,25 @@ td {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 2%;
+    margin: 0 5%;
 
 }
 
-.operators {
+.quant {
+    display: flex;
+    align-items: center;
     background-color: #11e95b;
     border-radius: 7px;
     padding: 2px 15px;
-    font-size: 1.3rem;
+}
+
+.quantOp {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin: 2%;
+    
 }
 
 
@@ -322,6 +575,9 @@ td {
     display: flex;
     align-items: center;
     padding: 0 2%;
+    top: 100%;
+    position: relative;
+    bottom: 0;
 }
 
 .navFooter {
@@ -329,6 +585,10 @@ td {
     flex-direction: column;
     font-family: 'Londrina Solid', cursive;
     width: 18%;
+}
+
+.textDeco:hover {
+    text-decoration: underline;
 }
 
 .centralFooter {
@@ -339,8 +599,9 @@ td {
     width: 64%;
 }
 
-.centralFooter h4, .credits p {
-    color:#fff
+.centralFooter h4,
+.credits p {
+    color: #fff
 }
 
 .linkFooter {

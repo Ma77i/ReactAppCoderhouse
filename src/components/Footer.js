@@ -9,10 +9,10 @@ const Footer = () => {
         <>
             <div className='footer'>
                 <div className='navFooter'>
-                    <Link to='/tienda' className='links'><b>Tienda</b></Link>
-                    <Link to='/category/1' className='links'>Categoria 1</Link>
-                    <Link to='/category/2' className='links'>Categoria 2</Link>
-                    <Link to='/category/3' className='links'>Categoria 3</Link>
+                    <Link to='/tienda' className='links textDeco'><b>Tienda</b></Link>
+                    <Link to='/category/1' className='links textDeco'>Categoria 1</Link>
+                    <Link to='/category/2' className='links textDeco'>Categoria 2</Link>
+                    <Link to='/category/3' className='links textDeco'>Categoria 3</Link>
                 </div>
                 <div className='centralFooter'>
                     <img className='logo__footer' src="../img/pokebola.png" alt="Pokebola/Logo" width='35' />

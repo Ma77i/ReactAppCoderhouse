@@ -30,12 +30,12 @@ const ItemCount = ({stock , initial , onAdd }) => {
     return (
         <>
             <div className='itemCount'>
-                <div className='operators'>
-                    <button className="buttons m-2" onClick={restarContador}> - </button>
-                    <Badge bg="secondary">{contador}</Badge>
-                    <button className="buttons m-2" onClick={aumentarContador}> + </button>
+                <div className='quant'>
+                    <button className="quantOp mx-2" onClick={restarContador}><b> - </b></button>
+                    <Badge bg="success">{contador}</Badge>
+                    <button className="quantOp mx-2" onClick={aumentarContador}><b> + </b></button>
                 </div>
-                <button className="buttons m-3" onClick={confirmar}>Agregar al carrito</button>
+                <button className="buttons m-3" onClick={confirmar}><b>Agregar al carrito</b></button>
             </div>
             
         </>

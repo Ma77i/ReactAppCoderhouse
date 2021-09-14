@@ -58,7 +58,6 @@ const ItemListContainer = ({ greeting }) => {
                     </Container>
                 :
                     <Container>
-                        <h1>{greeting}</h1>
                         <Loading />
                     </Container>
                 }

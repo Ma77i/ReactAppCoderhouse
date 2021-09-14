@@ -43,7 +43,7 @@ const ItemDetail = ({ item }) => {
                         <div className="product-desc">
                             <span className="product-title"><b>{item.title}</b></span>
                             <span className="product-caption">{item.description}</span>
-                            <span className="product-price">USD<b>{item.price}</b></span>
+                            <span className="product-price">$<b>{item.price}</b></span>
                         </div>
                         <div className="product-properties">
                             <span className="product-stock">
@@ -53,8 +53,8 @@ const ItemDetail = ({ item }) => {
                         </div>            
                         {unidades > 0 ? (
                             <div className='buttonsFinish'>
-                                <button className='buttons m-1' onClick={() => setUnidades(0)}><Link to='/tienda'> Seguir comprando </Link></button>
-                                <button className='buttons m-1'><Link to='/Cart'> Terminar Compra </Link></button>
+                                <Link to='/Cart'><button className='buttons'> <b>Terminar Compra</b> </button></Link>
+                                <Link to='/tienda'><button className='buttons' onClick={() => setUnidades(0)}> <b>Seguir comprando</b>  </button></Link>
                             </div>
                         ) : (
                             <div>
@@ -70,35 +70,3 @@ const ItemDetail = ({ item }) => {
 }
 
 export default ItemDetail
-
-
-        /*
-        <Container className="d-flex justify-content-center">
-            
-            <Card style={{ width: '25rem' }}>
-                <Card.Img variant="left" src={item.image} />
-                <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.description}</Card.Text>
-                </Card.Body>
-                <ListGroup className="list-group-flush">
-                    <ListGroupItem>Categoria: {item.category}</ListGroupItem>
-                </ListGroup>
-
-                {
-                    unidades > 0 ? (
-                        <Card.Body>
-                            <Button variant="dark" onClick={() => setUnidades(0)}><Link className="links m-1" to='/tienda'> Seguir comprando </Link></Button>
-                            <Button variant="dark"><Link className="links m-1" to='/Cart'> Terminar Compra </Link></Button>
-                        </Card.Body>
-                    ) : (
-
-                        <Card.Body>
-                            <ItemCount stock={item.stock} initial={item.stock >= 1 ? 1 : 0} onAdd={onAdd} />
-                        </Card.Body>
-                    )
-                }
-
-            </Card>
-        </Container>
-            */

@@ -10,16 +10,16 @@ const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
     const [state, setState] = useState('pendiente')
-    const detailParams = useParams()
+    const {id} = useParams()
     
     useEffect(() => {
 
         const dataBase = firestore;
         const collection = dataBase.collection('products');
 
-        if (detailParams.id) {
+        if (id) {
 
-            const filter = collection.doc(detailParams.id)
+            const filter = collection.doc(id)
             const query = filter.get()
 
             query.then((results) => {
@@ -38,13 +38,11 @@ const ItemDetailContainer = () => {
 
         
 
-    }, [detailParams.id]);
+    }, [id]);
 
     if (state === 'pendiente') {
         return (
-            <div>
-                <Loading />
-            </div>
+            <Loading />
         )
     }
 

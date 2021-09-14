@@ -1,4 +1,4 @@
-import { Button, Alert } from 'react-bootstrap'
+import { Alert } from 'react-bootstrap'
 import { useContext } from "react";
 import contexto from '../../Context/CartContext';
 import { Link } from 'react-router-dom'
@@ -12,21 +12,26 @@ const Form = () => {
         <div className='form'>
             {error ? <Alert variant="danger">Por favor complete todos los datos!!!</Alert> : null}
             <h1>Finalizar compra</h1>
-            <h3>Detalles de facturación</h3>
-            <div className='form__camp'>
-                <label htmlFor="input">Ingrese su nombre</label>
-                <input type="text" placeholder='Nombre' onChange={dataHandler} name='name' />
+            <h3>Detalles de facturación</h3><br />
+            <div class="group">      
+                <input type="text" onChange={dataHandler} name='name' required />
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Nombre</label>
             </div>
-            <div className='form__camp'>
-                <label htmlFor="input">Ingrese su teléfono</label>
-                <input type="text" placeholder='Teléfono' onChange={dataHandler} name='phone'/>
+            <div class="group">      
+                <input type="tel" onChange={dataHandler} name='phone' required />
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Teléfono</label>
             </div>
-            <div className='form__camp'>
-                <label htmlFor="input">Ingrese su Email</label>
-                <input type="text" placeholder='Email' onChange={dataHandler} name='mail' />
+            <div class="group">      
+                <input type="mail" onChange={dataHandler} name='mail' required />
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>Mail</label>
             </div>
-            <Button><Link to='/Cart' className='links'>Volver al carrito</Link></Button>
-            <Button variant='success' onClick={saveOrder}><Link to='/OrderReady' className='links'>Realizar compra</Link></Button>
+            <Link to='/OrderReady' className='links'><button onClick={saveOrder} name="submit" type="submit" data-submit="...Sending"><b>Realizar compra</b></button></Link>
         </div>
     )
 }
