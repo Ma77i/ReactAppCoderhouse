@@ -1,7 +1,7 @@
 import CartWidget from "./CartWidget"
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
-import contexto from "../Context/CartContext";
+import contexto from "../Context/Context";
 import { useContext } from "react";
 
 const NavBar = () => {

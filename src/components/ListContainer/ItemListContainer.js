@@ -4,64 +4,63 @@ import { Container } from 'react-bootstrap'
 import { useState, useEffect } from "react"
 import { useParams } from "react-router";
 import Loading from "../Loading";
-import {firestore} from '../../firebase'
+import { firestore } from '../../firebase'
 
 const ItemListContainer = ({ greeting }) => {
 
 
     const [data, setData] = useState([])
-    const params = useParams()
+    const { id } = useParams()
 
     useEffect(() => {
 
-        const dataBase = firestore  
+        const dataBase = firestore
         const collection = dataBase.collection('products')
 
-        if (params.id){
-            const filter = collection.where("category","==",params.id)
+        if (id) {
+            const filter = collection.where("category", "==", id)
             const query = filter.get()
             query.then((result) => {
 
                 const parseResult = []
-                result.forEach((document)=>{
-                    parseResult.push({...document.data(), id: document.id})
+                result.forEach((document) => {
+                    parseResult.push({ ...document.data(), id: document.id })
                 });
                 setData(parseResult)
-    
+
             }).catch((err) => {
                 console.log('Datos no encontrados');
             });
-        }else {
+        } else {
             const query = collection.get()
             query.then((result) => {
 
                 const parseResult = []
-                result.forEach((document)=>{
-                    parseResult.push({...document.data(), id: document.id})
+                result.forEach((document) => {
+                    parseResult.push({ ...document.data(), id: document.id })
                 });
                 setData(parseResult)
             }).catch((err) => {
                 console.log('Datos no encontrados', err);
             });
         }
-    }, [params]);
-    
+    }, [id]);
 
-
-
-        return <>
-                {data.length 
+    return (
+        <>
+            {data.length
                 ?
-                    <Container>
-                        <h1>{greeting}</h1>
-                        <ItemList items={data} />
-                    </Container>
+                <Container>
+                    <h1>{greeting}</h1>
+                    <ItemList items={data} />
+                </Container>
                 :
-                    <Container>
-                        <Loading />
-                    </Container>
-                }
-                </>
+                <Container>
+                    <Loading />
+                </Container>
+            }
+        </>
+    )
 }
 
 

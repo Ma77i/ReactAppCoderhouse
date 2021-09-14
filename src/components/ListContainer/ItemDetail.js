@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount"
 import { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import contexto from '../../Context/CartContext'
+import contexto from '../../Context/Context'
 
 
 const ItemDetail = ({ item }) => {
@@ -24,11 +24,7 @@ const ItemDetail = ({ item }) => {
             addItem(ItemToAdd)
         }
     }
-
-
-
-
-
+    
     return (
         <>
             <div className="container__card">
@@ -50,7 +46,7 @@ const ItemDetail = ({ item }) => {
                                 <h4>Stock</h4>
                                 <span className="stock">{item.stock}</span>
                             </span>
-                        </div>            
+                        </div>
                         {unidades > 0 ? (
                             <div className='buttonsFinish'>
                                 <Link to='/Cart'><button className='buttons'> <b>Terminar Compra</b> </button></Link>

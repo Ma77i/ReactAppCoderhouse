@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 //import { POKES } from "../../data"
 import Loading from "../Loading";
-import {firestore} from '../../firebase'
+import { firestore } from '../../firebase'
 
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState({})
     const [state, setState] = useState('pendiente')
-    const {id} = useParams()
-    
+    const { id } = useParams()
+
     useEffect(() => {
 
         const dataBase = firestore;
@@ -26,18 +26,15 @@ const ItemDetailContainer = () => {
                 const id = results.id;
 
                 const data = results.data()
-                const data_final = {id, ...data}
+                const data_final = { id, ...data }
                 setProduct(data_final)
 
             }).finally(() => {
                 setState('Terminado')
             })
-        }else{
+        } else {
             setState('Terminado')
         }
-
-        
-
     }, [id]);
 
     if (state === 'pendiente') {
@@ -46,12 +43,11 @@ const ItemDetailContainer = () => {
         )
     }
 
-
     return (
         <Container>
             <ItemDetail item={product} />
         </Container>
-        )
+    )
 
 }
 

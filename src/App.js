@@ -38,9 +38,9 @@ const App = () => {
                         </Route>
                         <Route path='/Cart' component={Cart} />
 
-                        <Route path='/form' component={Form}/>
+                        <Route path='/form' component={Form} />
 
-                        <Route path='/OrderReady' component={OrderReady}/>
+                        <Route path='/OrderReady' component={OrderReady} />
                     </Switch>
                 </div>
                 <Footer />

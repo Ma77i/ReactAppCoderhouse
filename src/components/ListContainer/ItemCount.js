@@ -1,31 +1,31 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { Badge } from 'react-bootstrap';
 
 
 
-const ItemCount = ({stock , initial , onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
 
-    const [contador,setContador] = useState(initial)
+    const [contador, setContador] = useState(initial)
 
     const aumentarContador = () => {
-        if(contador < stock){
+        if (contador < stock) {
             setContador(contador + 1)
         }
     }
 
     const restarContador = () => {
-        if(contador > initial){
+        if (contador > initial) {
             setContador(contador - 1)
         }
     }
 
     const confirmar = () => {
-        if(stock > 0){
+        if (stock > 0) {
             onAdd(contador)
         }
     }
-    
-    useEffect(() => {setContador(initial)},[initial])
+
+    useEffect(() => { setContador(initial) }, [initial])
 
     return (
         <>
@@ -37,7 +37,7 @@ const ItemCount = ({stock , initial , onAdd }) => {
                 </div>
                 <button className="buttons m-3" onClick={confirmar}><b>Agregar al carrito</b></button>
             </div>
-            
+
         </>
     )
 

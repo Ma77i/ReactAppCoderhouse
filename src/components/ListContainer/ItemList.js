@@ -6,7 +6,7 @@ const ItemList = ({ items }) => {
     return (
         <Container>
             <Row>
-                {items.map(prod => <Item producto={prod} key={prod.id}/>)}
+                {items.map(prod => <Item producto={prod} key={prod.id} />)}
             </Row>
         </Container>
     )

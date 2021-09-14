@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import { Provider } from "../Context/CartContext";
+import { Provider } from "./Context";
 import { firestore } from "../firebase";
 import firebase from 'firebase/app';
 import 'firebase/firestore'
 
-
-const CustomProvider = ({children}) => {
+const CustomProvider = ({ children }) => {
 
     const [carro, setCarro] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
@@ -18,20 +17,20 @@ const CustomProvider = ({children}) => {
         phone: ""
     });
 
-    
+
 
     useEffect(() => {
         const totalFinal = Object.values(carro).reduce((acumulador, { quantity, price }) => acumulador + quantity * price, 0);
         setTotalPrice(totalFinal);
     }, [carro, totalPrice])
-    
+
 
     const addItem = (item) => {
-        setCarro([...carro,item]);
+        setCarro([...carro, item]);
     }
 
     const removeItem = (itemId) => {
-        const eliminar = carro.filter(item=>itemId !== item.id)
+        const eliminar = carro.filter(item => itemId !== item.id)
         setCarro(eliminar)
     }
 
@@ -40,7 +39,7 @@ const CustomProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        return carro.some(producto=>producto.id === id)
+        return carro.some(producto => producto.id === id)
     }
 
     const getTotalQuantity = () => {
@@ -64,11 +63,11 @@ const CustomProvider = ({children}) => {
     const order = dataBase.collection('order');
 
     const dataHandler = (e) => {
-        setComprador( { ...comprador, [e.target.name] : e.target.value } );
+        setComprador({ ...comprador, [e.target.name]: e.target.value });
     }
 
     const saveOrder = () => {
-        
+
         if (validate) {
             const newOrder = {
                 buyer: comprador,
@@ -100,16 +99,15 @@ const CustomProvider = ({children}) => {
         }
     }
 
-
     const contexto_para_consumir = {
-        orderId, 
+        orderId,
         setOrderId,
         carro,
         addItem,
         removeItem,
         clear,
-        isInCart, 
-        getTotalQuantity, 
+        isInCart,
+        getTotalQuantity,
         totalPrice, setTotalPrice,
         error, setError,
         saveOrder,
@@ -118,7 +116,7 @@ const CustomProvider = ({children}) => {
     }
 
     return (
-        <Provider value={ contexto_para_consumir}>
+        <Provider value={contexto_para_consumir}>
             {children}
         </Provider>
 

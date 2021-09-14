@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Badge } from 'react-bootstrap';
-import contexto from "../Context/CartContext";
-import { useContext } from "react"; 
+import contexto from "../Context/Context";
+import { useContext } from "react";
 
 const CartWidget = () => {
-    
+
     const { getTotalQuantity } = useContext(contexto)
 
     return (
